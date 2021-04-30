@@ -1,7 +1,3 @@
-pretty graph
-
 track number of failures
 
-update readme with explanation of rules and link to vid
-
-add readme link to website
+add math for your score and opponent's score, and your round score
