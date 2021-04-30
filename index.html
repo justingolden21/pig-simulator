@@ -22,13 +22,22 @@
 	<p><b>A simple simulator for the dice game, Pig</b></p>
 
 	<label for="aim-for">Aim For:</label>
-	<input id="aim-for" type="number" value="20" min="2" max="100">
+	<input id="aim-for" type="number" value="20" min="2" max="1000">
 
 	<label for="num-simulations">Simulations:</label>
 	<input id="num-simulations" type="number" value="100000" min="1" max="1000000">
 
+	<details>
+		<summary>Options</summary>
+		<label for="dice-sides">Dice Sides:</label>
+		<input id="dice-sides" type="number" value="6" min="2" max="100">
+		<br>
+		<label for="lose-on">Lose On:</label>
+		<input id="lose-on" type="number" value="1" min="1" max="6">
+	</details>
+
 	<button id="start-btn">Simulate</button>
-	<button id="start-all-btn">Simulate Aim For Between 2 and 50</button>
+	<button id="start-all-btn">Simulate Aim For Between 2 and 100</button>
 
 	<p id="output"></p>
 
