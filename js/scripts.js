@@ -44,7 +44,6 @@ window.onload = ()=> {
 };
 
 function simulateMany(aimFor, numSimulations, diceSides, loseOn) {
-		console.log(diceSides, loseOn)
 	let total = 0;
 	for(let i=0; i<numSimulations; i++) {
 		total += simulate(aimFor, diceSides, loseOn);
