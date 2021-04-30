@@ -68,7 +68,8 @@ function simulate(aimFor, diceSides, loseOn) {
 function bestAimFor(diceSides, loseOn) {
 	const sumUpTo = n => (n*(n+1))/2;
 	const expectedVal = (sumUpTo(diceSides)-loseOn)/(diceSides-1);
-	let str = `Expected value: ${expectedVal} (sumUpTo(diceSides)-loseOn)/(diceSides-1)
+	let str = `With ${diceSides} sides, losing on a roll of ${loseOn}:
+	<br>Expected value: ${expectedVal} (sumUpTo(diceSides)-loseOn)/(diceSides-1)
 	<br>Best number to aim for n, such that:
 	<br>(diceSides-1)/diceSides * (expectedVal + n) > n
 	<br>${diceSides-1}/${diceSides}(${expectedVal} + n) > n
