@@ -17,6 +17,8 @@ window.onload = ()=> {
 			<br>Average: <b>${result/numSimulations}</b>
 			<br>Settings: ${diceSides} sided dice, lose on ${loseOn}
 			<br><small>(rolled ${diceRolled} dice)</small>`);
+
+		bestAimFor(diceSides, loseOn);
 	});
 
 	u('#start-all-btn').on('click', ()=> {
@@ -35,6 +37,8 @@ window.onload = ()=> {
 
 		u('#output').html(output + `<br>Settings: ${diceSides} sided dice, lose on ${loseOn}
 			<br><small>(rolled ${diceRolled} dice)</small>`);
+
+		bestAimFor(diceSides, loseOn);
 	});
 
 	u('#dice-sides').on('change', ()=> {
@@ -59,4 +63,18 @@ function simulate(aimFor, diceSides, loseOn) {
 		diceRolled++;
 	} while(roll != loseOn && total < aimFor);
 	return roll == loseOn ? 0 : total;
+}
+
+function bestAimFor(diceSides, loseOn) {
+	const sumUpTo = n => (n*(n+1))/2;
+	const expectedVal = (sumUpTo(diceSides)-loseOn)/(diceSides-1);
+	let str = `Expected value: ${expectedVal} (sumUpTo(diceSides)-loseOn)/(diceSides-1)
+	<br>Best number to aim for n, such that:
+	<br>(diceSides-1)/diceSides * (expectedVal + n) > n
+	<br>${diceSides-1}/${diceSides}(${expectedVal} + n) > n
+	<br>${diceSides-1} * (${expectedVal} + n) > ${diceSides}n
+	<br>${expectedVal*(diceSides-1)} + ${diceSides-1}n > ${diceSides}n
+	<br>${expectedVal*(diceSides-1)} > n
+	<br>((expectedVal*(diceSides-1) > n))`;
+	u('#best-aim-for').html(str);
 }
